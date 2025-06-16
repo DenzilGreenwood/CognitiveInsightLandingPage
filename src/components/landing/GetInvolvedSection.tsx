@@ -1,10 +1,10 @@
 
 "use client";
 
+import { useActionState, useEffect, useRef } from "react";
+import { useFormStatus } from 'react-dom'; // Import useFormStatus
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useFormState, useFormStatus } from "react-dom";
-import { useEffect, useRef } from "react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CheckCircle, Loader2, Mail } from "lucide-react";
 import { signUpForNewsletter, type NewsletterSignUpState } from "@/app/actions/newsletterActions";
@@ -14,7 +14,7 @@ import { useToast } from "@/hooks/use-toast";
 
 
 function SubmitButton() {
-  const { pending } = useFormStatus();
+  const { pending } = useFormStatus(); // Correctly use useFormStatus
   return (
     <Button type="submit" disabled={pending} className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground">
       {pending ? (
@@ -31,7 +31,7 @@ function SubmitButton() {
 
 export function GetInvolvedSection() {
   const initialState: NewsletterSignUpState = { message: "", isSuccess: false };
-  const [state, formAction] = useFormState(signUpForNewsletter, initialState);
+  const [state, formAction] = useActionState(signUpForNewsletter, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
