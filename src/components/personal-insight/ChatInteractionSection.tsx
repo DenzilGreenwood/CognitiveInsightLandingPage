@@ -53,7 +53,7 @@ export function ChatInteractionSection() {
             Engage with the Protocol
           </CardTitle>
           <CardDescription>
-            Interact with our AI guide to work through each phase of the Cognitive Edge Protocol™.
+            Interact with my AI guide to work through each phase of the Cognitive Edge Protocol™.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center">
@@ -102,3 +102,4 @@ export function ChatInteractionSection() {
 //   // Placeholder. This would call the Genkit flow.
 //   return `AI response for phase ${input.phase} to "${input.userInput}"`;
 // }
+

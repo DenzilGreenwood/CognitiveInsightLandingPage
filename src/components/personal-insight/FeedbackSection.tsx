@@ -87,7 +87,7 @@ export function FeedbackSection() {
             Share Your Experience
           </CardTitle>
           <CardDescription>
-            Your feedback is invaluable in helping us refine the Cognitive Edge Protocol™.
+            Your feedback is invaluable in helping me refine the Cognitive Edge Protocol™.
           </CardDescription>
         </CardHeader>
         <form ref={formRef} action={formAction}>
@@ -176,3 +176,4 @@ export function FeedbackSection() {
     </AnimatedSection>
   );
 }
+

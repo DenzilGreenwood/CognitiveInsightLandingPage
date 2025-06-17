@@ -13,7 +13,7 @@ const partnershipPrinciples = [
   "I honor your privacy and autonomy at every step.",
 ];
 
-const ethicalDisclosure = "All interactions respect your privacy. No data will be used without consent. The Cognitive Edge Protocol™ uses AI as a supportive partner, not a replacement for human insight where AI tools are optionally employed in our process.";
+const ethicalDisclosure = "All interactions respect your privacy. No data will be used without consent. The Cognitive Edge Protocol™ uses AI as a supportive partner, not a replacement for human insight where AI tools are optionally employed in my process.";
 
 export function EthosSection() {
   return (
@@ -32,7 +32,7 @@ export function EthosSection() {
         <Card className="mb-12 shadow-lg">
           <CardHeader>
             <CardTitle className="font-headline text-2xl text-primary flex items-center">
-              <Handshake className="mr-3 h-7 w-7" /> Our Partnership Principles
+              <Handshake className="mr-3 h-7 w-7" /> My Partnership Principles
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -60,3 +60,4 @@ export function EthosSection() {
     </AnimatedSection>
   );
 }
+

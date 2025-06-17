@@ -83,7 +83,7 @@ export function LeadCaptureSection() {
             <CardFooter className="flex flex-col items-center">
               <SubmitButton />
               <p className="mt-4 text-xs text-muted-foreground text-center">
-                We’ll never sell your data. Your insight is private.
+                I'll never sell your data. Your insight is private.
               </p>
             </CardFooter>
           </form>
@@ -92,3 +92,4 @@ export function LeadCaptureSection() {
     </AnimatedSection>
   );
 }
+

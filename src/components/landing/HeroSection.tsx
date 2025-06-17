@@ -35,7 +35,7 @@ export function HeroSection() {
               Clarity in Complexity — Strategic Thinking for Life, Work, and Leadership.
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-foreground/80">
-              Through the Cognitive Edge Protocol™, we help people make meaning out of chaos and act from identity, not reaction.
+              Through the Cognitive Edge Protocol™, I help people make meaning out of chaos and act from identity, not reaction.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 items-center justify-center md:justify-start">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto">
@@ -66,3 +66,4 @@ export function HeroSection() {
     </AnimatedSection>
   );
 }
+
