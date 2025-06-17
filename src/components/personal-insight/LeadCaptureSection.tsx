@@ -22,7 +22,7 @@ function SubmitButton() {
           Submitting...
         </>
       ) : (
-        "Unlock Your Insight"
+        "🔓 Unlock My Insight"
       )}
     </Button>
   );
@@ -58,10 +58,10 @@ export function LeadCaptureSection() {
       <div className="max-w-md mx-auto">
         <Card className="shadow-lg">
           <CardHeader className="text-center">
-            <CardTitle id="lead-capture-title" className="font-headline text-2xl text-primary">Ready to Explore Your Cognitive Edge?</CardTitle>
-            <CardDescription>
-              Submit your email and create a password to see what personal insight this protocol could provide for you.
-            </CardDescription>
+            <CardTitle id="lead-capture-title" className="font-headline text-2xl text-primary">
+              📥 Enter your email and create a secure password to begin your personalized journey.
+            </CardTitle>
+            {/* CardDescription removed as per new prompt */}
           </CardHeader>
           <form ref={formRef} action={formAction}>
             <CardContent className="space-y-6">
@@ -74,14 +74,17 @@ export function LeadCaptureSection() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="password" className="flex items-center">
-                  <KeyRound className="mr-2 h-4 w-4 text-muted-foreground" /> Password
+                  <KeyRound className="mr-2 h-4 w-4 text-muted-foreground" /> Create a Password
                 </Label>
                 <Input type="password" name="password" id="password" placeholder="Create a password" required aria-describedby="password-error"/>
                 {state?.errors?.password && <p id="password-error" className="text-sm text-destructive mt-1">{state.errors.password[0]}</p>}
               </div>
             </CardContent>
-            <CardFooter>
+            <CardFooter className="flex flex-col items-center">
               <SubmitButton />
+              <p className="mt-4 text-xs text-muted-foreground text-center">
+                We’ll never sell your data. Your insight is private.
+              </p>
             </CardFooter>
           </form>
         </Card>
