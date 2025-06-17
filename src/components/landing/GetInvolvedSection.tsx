@@ -2,51 +2,61 @@
 "use client";
 
 import { useActionState, useEffect, useRef } from "react";
-import { useFormStatus } from 'react-dom'; // Import useFormStatus
+import { useFormStatus } from 'react-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { CheckCircle, Loader2, Mail } from "lucide-react";
-import { signUpForNewsletter, type NewsletterSignUpState } from "@/app/actions/newsletterActions";
+import { Textarea } from "@/components/ui/textarea";
+import { Loader2, Send, User, Briefcase, Sparkles } from "lucide-react";
+import { submitVolunteerForm, type VolunteerFormState } from "@/app/actions/volunteerActions";
 import Image from "next/image";
 import { AnimatedSection } from "./AnimatedSection";
 import { useToast } from "@/hooks/use-toast";
+import { Label } from "@/components/ui/label";
 
 
 function SubmitButton() {
-  const { pending } = useFormStatus(); // Correctly use useFormStatus
+  const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground">
+    <Button type="submit" disabled={pending} className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Subscribing...
+          Submitting...
         </>
       ) : (
-        "Subscribe"
+        <>
+          <Send className="mr-2 h-4 w-4" />
+          Submit Interest
+        </>
       )}
     </Button>
   );
 }
 
 export function GetInvolvedSection() {
-  const initialState: NewsletterSignUpState = { message: "", isSuccess: false };
-  const [state, formAction] = useActionState(signUpForNewsletter, initialState);
+  const initialState: VolunteerFormState = { message: "", isSuccess: false, errors: {} };
+  const [state, formAction] = useActionState(submitVolunteerForm, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
-    if (state?.message) {
+    if (state?.message && state.message !== initialState.message) { // Check if message is new
       if (state.isSuccess) {
         toast({
-          title: "Success!",
+          title: "Submission Received!",
           description: state.message,
         });
-        formRef.current?.reset(); // Reset form on success
-      } else if (state.errors?.email || state.message !== initialState.message) {
-         toast({
-          title: "Oops!",
-          description: state.errors?.email?.[0] || state.message,
+        formRef.current?.reset(); 
+      } else {
+         const errorDescription = 
+           state.errors?.name?.[0] ||
+           state.errors?.email?.[0] ||
+           state.errors?.roleSituation?.[0] ||
+           state.errors?.interestReason?.[0] ||
+           state.message;
+        toast({
+          title: "Submission Error",
+          description: errorDescription,
           variant: "destructive",
         });
       }
@@ -56,61 +66,67 @@ export function GetInvolvedSection() {
 
   return (
     <AnimatedSection
+      id="volunteer-cta-section" // Updated ID for scrolling
       className="py-16 md:py-24 bg-card shadow-sm"
-      aria-labelledby="get-involved-title"
+      aria-labelledby="volunteer-title"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h2
-              id="get-involved-title"
-              className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-6"
+              id="volunteer-title"
+              className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-4"
             >
-              Get Involved
+              🧠 Help Us Refine the Protocol
             </h2>
-            <p className="text-lg text-foreground/80 mb-4">
-              Explore opportunities for personal and professional growth through Cognitive Edge:
+            <p className="text-lg text-foreground/80 mb-8">
+              We’re seeking individuals or small teams navigating uncertainty, transition, or strategic reinvention to participate in a new round of real-time case studies using the Cognitive Edge Protocol.
             </p>
-            <ul className="list-disc list-inside space-y-2 mb-8 text-foreground/70">
-              <li>Personalized Coaching</li>
-              <li>Interactive Workshops</li>
-              <li>Keynote Speaking Engagements</li>
-            </ul>
-            <h3 className="font-headline text-2xl font-semibold text-primary mb-4">
-              Stay Updated
-            </h3>
-            <p className="text-foreground/80 mb-6">
-              Subscribe to our newsletter for the latest insights, updates on the protocol, and upcoming events.
-            </p>
-            <form ref={formRef} action={formAction} className="space-y-4">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <div className="relative flex-grow">
-                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                   <Input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="your.email@example.com"
-                    required
-                    className="pl-10"
-                    aria-label="Email address for newsletter"
-                  />
-                </div>
-                <SubmitButton />
+            
+            <form ref={formRef} action={formAction} className="space-y-6">
+              <div>
+                <Label htmlFor="name" className="mb-2 flex items-center">
+                  <User className="mr-2 h-4 w-4 text-muted-foreground" /> Name
+                </Label>
+                <Input type="text" name="name" id="name" placeholder="Your Name" required aria-describedby="name-error"/>
+                {state?.errors?.name && <p id="name-error" className="text-sm text-destructive mt-1">{state.errors.name[0]}</p>}
               </div>
-               {state?.errors?.email && (
-                <p className="text-sm text-destructive mt-1">{state.errors.email[0]}</p>
-              )}
+
+              <div>
+                <Label htmlFor="email" className="mb-2 flex items-center">
+                  <User className="mr-2 h-4 w-4 text-muted-foreground" /> Email
+                </Label>
+                <Input type="email" name="email" id="email" placeholder="your.email@example.com" required aria-describedby="email-error"/>
+                {state?.errors?.email && <p id="email-error" className="text-sm text-destructive mt-1">{state.errors.email[0]}</p>}
+              </div>
+
+              <div>
+                <Label htmlFor="roleSituation" className="mb-2 flex items-center">
+                  <Briefcase className="mr-2 h-4 w-4 text-muted-foreground" /> Role / Situation
+                </Label>
+                <Textarea name="roleSituation" id="roleSituation" placeholder="e.g., Leader in transition, Team facing strategic shift..." required rows={3} aria-describedby="role-error"/>
+                {state?.errors?.roleSituation && <p id="role-error" className="text-sm text-destructive mt-1">{state.errors.roleSituation[0]}</p>}
+              </div>
+              
+              <div>
+                <Label htmlFor="interestReason" className="mb-2 flex items-center">
+                   <Sparkles className="mr-2 h-4 w-4 text-muted-foreground" /> Why you’re interested
+                </Label>
+                <Textarea name="interestReason" id="interestReason" placeholder="e.g., Seeking clarity on next steps, Looking to improve team cohesion..." required rows={3} aria-describedby="interest-error"/>
+                {state?.errors?.interestReason && <p id="interest-error" className="text-sm text-destructive mt-1">{state.errors.interestReason[0]}</p>}
+              </div>
+              
+              <SubmitButton />
             </form>
           </div>
            <div className="order-1 md:order-2 flex justify-center">
             <Image
               src="https://placehold.co/500x500.png"
-              alt="Community and connection illustration"
+              alt="Illustration of collaboration or team refinement"
               width={500}
               height={500}
               className="rounded-lg shadow-xl object-cover"
-              data-ai-hint="community connection"
+              data-ai-hint="collaboration team"
             />
           </div>
         </div>

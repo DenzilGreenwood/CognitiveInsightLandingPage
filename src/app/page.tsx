@@ -2,8 +2,8 @@
 import { HeroSection } from "@/components/landing/HeroSection";
 import { AboutProtocolSection } from "@/components/landing/AboutProtocolSection";
 import { CaseStudySection } from "@/components/landing/CaseStudySection";
-import { YourEdgeProfileSection } from "@/components/landing/YourEdgeProfileSection";
 import { GetInvolvedSection } from "@/components/landing/GetInvolvedSection";
+import { EthicalDisclosureSection } from "@/components/landing/EthicalDisclosureSection";
 import { Footer } from "@/components/landing/Footer";
 
 export default function CognitiveEdgeLandingPage() {
@@ -11,10 +11,10 @@ export default function CognitiveEdgeLandingPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <main className="flex-grow">
         <HeroSection />
-        <AboutProtocolSection />
-        <CaseStudySection />
-        <YourEdgeProfileSection />
-        <GetInvolvedSection />
+        <AboutProtocolSection /> {/* This is "How It Works" */}
+        <CaseStudySection /> {/* This is "The Story Behind It" */}
+        <GetInvolvedSection /> {/* This is "Volunteer Call to Action" */}
+        <EthicalDisclosureSection />
       </main>
       <Footer />
     </div>
