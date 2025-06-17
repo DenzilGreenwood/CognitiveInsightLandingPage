@@ -3,20 +3,20 @@
 
 import { AnimatedSection } from "./AnimatedSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Smile } from "lucide-react"; // Changed from MessageCircleQuote to Smile
+import { Smile } from "lucide-react";
 
 const testimonials = [
   {
     quote: "This helped me realize why I was stuck in my career.",
-    author: "Valued Participant", // Placeholder
+    author: "Valued Participant",
   },
   {
     quote: "I finally feel like my thinking is an asset, not a burden.",
-    author: "Insightful User", // Placeholder
+    author: "Insightful User",
   },
   {
     quote: "The clarity I gained was truly transformative for my project.",
-    author: "Strategic Thinker", // Placeholder
+    author: "Strategic Thinker",
   },
 ];
 
@@ -29,7 +29,7 @@ export function TestimonialsSection() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <Smile className="h-12 w-12 text-primary mx-auto mb-4" /> {/* Changed from MessageCircleQuote to Smile */}
+          <Smile className="h-12 w-12 text-primary mx-auto mb-4" />
           <h2
             id="testimonials-title"
             className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-4"

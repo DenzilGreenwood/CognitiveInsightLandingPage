@@ -8,7 +8,7 @@ import { AnimatedSection } from "./AnimatedSection";
 export function CaseStudySection() {
   return (
     <AnimatedSection
-      id="story-behind-it-section"
+      id="case-study" // Updated ID for nav link
       className="py-16 md:py-24 bg-card shadow-sm"
       aria-labelledby="story-behind-it-title"
     >
@@ -29,7 +29,7 @@ export function CaseStudySection() {
               id="story-behind-it-title"
               className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-6"
             >
-              The Story Behind It
+              The Story Behind The Cognitive Edge Protocol™
             </h2>
             <blockquote className="text-xl text-foreground/80 mb-6 border-l-4 border-accent pl-6 italic">
               “I’m 54. I have 10,950 days left. I don’t want to spend them misaligned.”
@@ -38,6 +38,7 @@ export function CaseStudySection() {
               That insight changed everything. What began as a personal breakdown became the seed for a replicable protocol — and a new consulting practice built on legacy framing, emotional clarity, and system-based insight.
             </p>
             <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
+              {/* These links would ideally go to specific pages or documents */}
               <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10">
                 <Link href="#"> 
                   Read My Self-Discovery Summary

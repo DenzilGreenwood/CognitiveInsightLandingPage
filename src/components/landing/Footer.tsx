@@ -17,7 +17,7 @@ export function Footer() {
             <Mail className="h-6 w-6" />
           </a>
           <a
-            href="#" // Placeholder for LinkedIn URL
+            href="#" // Replace with actual LinkedIn URL
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground/70 hover:text-primary transition-colors"
@@ -32,16 +32,20 @@ export function Footer() {
         <p className="text-xs mt-2">
           The Cognitive Edge Protocol&trade; is a proprietary framework created by Denzil J. Greenwood. All rights reserved.
         </p>
-        <nav className="mt-4 text-sm" aria-label="Footer navigation">
-          <Link href="#" className="hover:text-primary transition-colors px-2">
+        <nav className="mt-4 text-sm space-x-2" aria-label="Footer navigation">
+          <Link href="/ethos" className="hover:text-primary transition-colors px-1">
+            Ethos
+          </Link>
+          <span className="text-foreground/50">|</span>
+          <Link href="#" className="hover:text-primary transition-colors px-1">
             Privacy Policy
           </Link>
           <span className="text-foreground/50">|</span>
-          <Link href="#" className="hover:text-primary transition-colors px-2">
+          <Link href="#" className="hover:text-primary transition-colors px-1">
             Terms of Service
           </Link>
           <span className="text-foreground/50">|</span>
-           <Link href="mailto:denzil.james.greenwood@outlook.com" className="hover:text-primary transition-colors px-2">
+           <Link href="mailto:denzil.james.greenwood@outlook.com" className="hover:text-primary transition-colors px-1">
             Contact
           </Link>
         </nav>

@@ -8,13 +8,13 @@ import { AnimatedSection } from "@/components/landing/AnimatedSection";
 
 // Placeholder data for the report
 const exampleReportData = {
-  title: "Your Personalized Cognitive Edge Insights",
+  title: "Your Personalized Cognitive Edge Insights™",
   summary: "This report summarizes the key insights and strengths uncovered during your journey through the Cognitive Edge Protocol™. It's designed to provide clarity, purpose, and a foundation for actionable strategies.",
   keyStrengths: [
-    "Legacy Framing: A strong ability to consider long-term implications and build for the future.",
+    "Legacy Framing™: A strong ability to consider long-term implications and build for the future.",
     "Pattern Recognition: Adept at identifying underlying connections and trends in complex situations.",
     "Reflective Depth: Capacity for profound introspection and learning from experiences.",
-    "Clarity Architect: Skilled in structuring ambiguous information and creating clear pathways.",
+    "Clarity Architect™: Skilled in structuring ambiguous information and creating clear pathways.",
     "High-Agency Thinking: Proactive in reframing challenges and taking initiative.",
   ],
   nextSteps: "Consider how these identified strengths can be leveraged in your current challenges or future goals. What small, actionable step can you take today based on this newfound clarity?"
@@ -34,10 +34,10 @@ export function InsightReportSection() {
         <CardHeader className="text-center">
           <FileText className="h-12 w-12 text-primary mx-auto mb-3" />
           <CardTitle id="insight-report-title" className="font-headline text-2xl text-primary">
-            Your Personal Insight Report
+            Your Personal Insight Report™
           </CardTitle>
           <CardDescription>
-            Review your synthesized insights and identified cognitive strengths.
+            Review your synthesized insights and identified cognitive strengths from the Cognitive Edge Protocol™.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -64,7 +64,7 @@ export function InsightReportSection() {
         <CardFooter className="flex justify-center">
           <Button onClick={handleDownloadPdf} size="lg">
             <Download className="mr-2 h-5 w-5" />
-            Download PDF Report
+            Download PDF Report™
           </Button>
         </CardFooter>
       </Card>

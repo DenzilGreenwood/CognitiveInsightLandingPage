@@ -52,14 +52,14 @@ export function ProtocolPhasesSection() {
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {protocolPhases.map((phase) => (
-          <Card key={phase.name} className="shadow-md hover:shadow-lg transition-shadow bg-card">
+          <Card key={phase.name} className="shadow-md hover:shadow-lg transition-shadow bg-card h-full flex flex-col">
             <CardHeader>
               <div className="flex items-center mb-3">
                 <phase.icon className="h-8 w-8 text-accent mr-3" />
                 <CardTitle className="font-headline text-xl text-primary">{phase.name}</CardTitle>
               </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-grow">
               <CardDescription className="text-foreground/70">{phase.description}</CardDescription>
             </CardContent>
           </Card>

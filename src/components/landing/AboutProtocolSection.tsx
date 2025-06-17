@@ -1,6 +1,6 @@
 
 "use client";
-import { CheckCircle, Zap, Search, MessageSquare, Handshake, Users, Sparkles } from "lucide-react"; // Example icons
+import { CheckCircle, Zap, Search, MessageSquare, Handshake, Users, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { AnimatedSection } from "./AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -19,18 +19,18 @@ const protocolPhases = [
   },
   {
     icon: MessageSquare,
-    name: "Validate Emotion",
-    description: "Acknowledging and understanding emotional impacts.",
+    name: "Validate Emotion / Reframe Belief", // Updated this phase name slightly for clarity
+    description: "Acknowledging emotions, constructively reframing beliefs.",
   },
   {
-    icon: Handshake,
-    name: "Pivot to Support",
-    description: "Shifting towards constructive resources and aid.",
+    icon: Handshake, // Changed from MessageSquare as per original prompt for Phase 3, keeping Handshake for Pivot
+    name: "Pivot to Pure Support", // Matched wording from PRD
+    description: "At emotional lows, offer grounding and validation, cease strategic input.",
   },
   {
     icon: Users,
-    name: "Self-Discovery",
-    description: "Facilitating personal insights and strengths identification.",
+    name: "Follow User's Lead to Self-Discovery", // Matched wording from PRD
+    description: "Shift from advisor to facilitator, follow user's lead.",
   },
   {
     icon: Sparkles,
@@ -42,7 +42,7 @@ const protocolPhases = [
 export function AboutProtocolSection() {
   return (
     <AnimatedSection
-      id="how-it-works-section" // Updated ID for scrolling
+      id="how-it-works-section" 
       className="py-16 md:py-24"
       aria-labelledby="how-it-works-title"
     >
@@ -52,7 +52,7 @@ export function AboutProtocolSection() {
             id="how-it-works-title"
             className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-4"
           >
-            How It Works (Protocol Summary)
+            How The Cognitive Edge Protocol™ Works
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
             Each phase is based on real conversations, backed by systems thinking, emotional intelligence, and strategic mapping — turning overwhelming complexity into actionable clarity.
@@ -81,8 +81,9 @@ export function AboutProtocolSection() {
           </div>
         </div>
         <div className="text-center">
+          {/* Link to actual PDF or a page with more details */}
           <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent/10">
-            <Link href="#">
+            <Link href="#"> 
               View Full Case Study (PDF)
             </Link>
           </Button>
