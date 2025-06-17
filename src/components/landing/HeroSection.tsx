@@ -30,7 +30,7 @@ export function HeroSection() {
               Clarity in Complexity — A Protocol for Life and Work Transitions.
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-foreground/80">
-              CognitiveInsight.ai helps individuals, teams, and organizations transform crisis into clarity using the Cognitive Edge Protocol — a six-phase framework developed by Denzil J. Greenwood.
+              CognitiveInsight.ai helps individuals, teams, and organizations transform crisis into clarity using the Cognitive Edge Protocol™ — a six-phase framework developed by Denzil J. Greenwood.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 items-center justify-center md:justify-start">
               <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto">

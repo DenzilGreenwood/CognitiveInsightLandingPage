@@ -1,10 +1,11 @@
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"; // Import Toaster
 
 export const metadata: Metadata = {
-  title: 'Cognitive Edge Protocol | CognitiveInsight.ai',
-  description: 'Turn overwhelm into clarity, and identity into action with the Cognitive Edge Protocol.',
+  title: 'Cognitive Edge Protocol™ | CognitiveInsight.ai',
+  description: 'Turn overwhelm into clarity, and identity into action with the Cognitive Edge Protocol™.',
 };
 
 export default function RootLayout({

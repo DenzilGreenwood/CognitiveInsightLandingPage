@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { MessageCircle } from "lucide-react";
 import { AnimatedSection } from "@/components/landing/AnimatedSection";
 import { useState } from "react";
-import { Input } from "@/components/ui/input"; // Added import
+import { Input } from "@/components/ui/input";
 
 // Placeholder for actual chat messages if we build a simple UI here
 interface ChatMessage {
@@ -53,7 +53,7 @@ export function ChatInteractionSection() {
             Engage with the Protocol
           </CardTitle>
           <CardDescription>
-            Interact with our AI guide to work through each phase of the Cognitive Edge Protocol.
+            Interact with our AI guide to work through each phase of the Cognitive Edge Protocol™.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center">

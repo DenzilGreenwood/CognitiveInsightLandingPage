@@ -44,10 +44,10 @@ export function ProtocolPhasesSection() {
       <div className="text-center mb-12">
         <Brain className="h-16 w-16 text-primary mx-auto mb-4" />
         <h2 id="protocol-phases-title" className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-4">
-          The 6 Phases of the Cognitive Edge Protocol
+          The 6 Phases of the Cognitive Edge Protocol™
         </h2>
         <p className="text-lg text-foreground/80 max-w-3xl mx-auto">
-          Embark on a guided journey through the Cognitive Edge Protocol. Each phase is designed to build upon the last, leading you towards profound personal insight and actionable clarity.
+          Embark on a guided journey through the Cognitive Edge Protocol™. Each phase is designed to build upon the last, leading you towards profound personal insight and actionable clarity.
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -21,7 +21,7 @@ export function EthicalDisclosureSection() {
             Ethical & AI Disclosure
           </h2>
           <p className="text-md text-foreground/80">
-            All interactions respect your privacy. No data will be used without consent. The Cognitive Edge Protocol uses AI as a supportive partner, not a replacement for human insight.
+            All interactions respect your privacy. No data will be used without consent. The Cognitive Edge Protocol™ uses AI as a supportive partner, not a replacement for human insight.
           </p>
         </div>
       </div>

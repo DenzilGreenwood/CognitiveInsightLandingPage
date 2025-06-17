@@ -54,7 +54,7 @@ export function FeedbackSection() {
         setValueAddedOption("10"); // Reset radio group
         setShowOtherPriceInput(false); // Hide other input
       } else {
-        const errorDescription = 
+        const errorDescription =
           state.errors?.starRating?.[0] ||
           state.errors?.valueAdded?.[0] ||
           state.errors?.otherPrice?.[0] ||
@@ -87,7 +87,7 @@ export function FeedbackSection() {
             Share Your Experience
           </CardTitle>
           <CardDescription>
-            Your feedback is invaluable in helping us refine the Cognitive Edge Protocol.
+            Your feedback is invaluable in helping us refine the Cognitive Edge Protocol™.
           </CardDescription>
         </CardHeader>
         <form ref={formRef} action={formAction}>
@@ -112,9 +112,10 @@ export function FeedbackSection() {
             </div>
 
             <div className="space-y-2">
-              <Label className="flex items-center text-lg font-semibold">
-                <DollarSign className="mr-2 h-5 w-5 text-muted-foreground" /> Perceived Value
+              <Label className="flex items-center text-lg font-semibold mb-1">
+                <DollarSign className="mr-2 h-5 w-5 text-muted-foreground" /> Perceived Impact
               </Label>
+              <p className="text-sm text-muted-foreground mb-3">How much would you value this protocol if it helped you gain clarity during a life transition?</p>
               <RadioGroup
                 name="valueAdded"
                 defaultValue={valueAddedOption}
@@ -134,16 +135,16 @@ export function FeedbackSection() {
                 </div>
               </RadioGroup>
               {state?.errors?.valueAdded && <p id="valueAdded-error" className="text-sm text-destructive mt-1">{state.errors.valueAdded[0]}</p>}
-              
+
               {showOtherPriceInput && (
                 <div className="mt-2 space-y-1">
                   <Label htmlFor="otherPrice">Specify Other Amount ($)</Label>
-                  <Input 
-                    type="number" 
-                    name="otherPrice" 
-                    id="otherPrice" 
-                    placeholder="e.g., 75" 
-                    min="0" 
+                  <Input
+                    type="number"
+                    name="otherPrice"
+                    id="otherPrice"
+                    placeholder="e.g., 75"
+                    min="0"
                     step="1"
                     aria-describedby="otherPrice-error"
                   />

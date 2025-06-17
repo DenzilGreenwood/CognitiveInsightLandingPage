@@ -9,7 +9,7 @@ import { AnimatedSection } from "@/components/landing/AnimatedSection";
 // Placeholder data for the report
 const exampleReportData = {
   title: "Your Personalized Cognitive Edge Insights",
-  summary: "This report summarizes the key insights and strengths uncovered during your journey through the Cognitive Edge Protocol. It's designed to provide clarity, purpose, and a foundation for actionable strategies.",
+  summary: "This report summarizes the key insights and strengths uncovered during your journey through the Cognitive Edge Protocol™. It's designed to provide clarity, purpose, and a foundation for actionable strategies.",
   keyStrengths: [
     "Legacy Framing: A strong ability to consider long-term implications and build for the future.",
     "Pattern Recognition: Adept at identifying underlying connections and trends in complex situations.",
@@ -46,7 +46,7 @@ export function InsightReportSection() {
               <Sparkles className="h-5 w-5 mr-2 text-accent" /> {exampleReportData.title}
             </h3>
             <p className="text-foreground/80 mb-4">{exampleReportData.summary}</p>
-            
+
             <h4 className="font-semibold text-primary mb-2">Key Cognitive Strengths Identified:</h4>
             <ul className="list-disc list-inside space-y-1 text-foreground/70 mb-4">
               {exampleReportData.keyStrengths.map((strength, index) => (
@@ -58,7 +58,7 @@ export function InsightReportSection() {
             <p className="text-foreground/70">{exampleReportData.nextSteps}</p>
           </div>
           <p className="text-sm text-muted-foreground text-center">
-            The content above is a sample. Your actual report will be personalized based on your interaction with the protocol.
+            The content above is a sample. Your actual report will be personalized based on your interaction with the Cognitive Edge Protocol™.
           </p>
         </CardContent>
         <CardFooter className="flex justify-center">

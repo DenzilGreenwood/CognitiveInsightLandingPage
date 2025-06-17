@@ -71,8 +71,8 @@ export function AboutProtocolSection() {
           </div>
           <div className="flex justify-center">
             <Image
-              src="https://placehold.co/500x550.png" 
-              alt="Visual flowchart or icons representing the 6 phases of the Cognitive Edge Protocol"
+              src="https://placehold.co/500x550.png"
+              alt="Visual flowchart or icons representing the 6 phases of the Cognitive Edge Protocol™"
               width={500}
               height={550}
               className="rounded-lg shadow-xl object-cover"

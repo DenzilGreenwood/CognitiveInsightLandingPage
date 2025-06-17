@@ -46,9 +46,9 @@ export function GetInvolvedSection() {
           title: "Submission Received!",
           description: state.message,
         });
-        formRef.current?.reset(); 
+        formRef.current?.reset();
       } else {
-         const errorDescription = 
+         const errorDescription =
            state.errors?.name?.[0] ||
            state.errors?.email?.[0] ||
            state.errors?.roleSituation?.[0] ||
@@ -80,9 +80,9 @@ export function GetInvolvedSection() {
               🧠 Help Us Refine the Protocol
             </h2>
             <p className="text-lg text-foreground/80 mb-8">
-              We’re seeking individuals or small teams navigating uncertainty, transition, or strategic reinvention to participate in a new round of real-time case studies using the Cognitive Edge Protocol.
+              We’re seeking individuals or small teams navigating uncertainty, transition, or strategic reinvention to participate in a new round of real-time case studies using the Cognitive Edge Protocol™.
             </p>
-            
+
             <form ref={formRef} action={formAction} className="space-y-6">
               <div>
                 <Label htmlFor="name" className="mb-2 flex items-center">
@@ -107,7 +107,7 @@ export function GetInvolvedSection() {
                 <Textarea name="roleSituation" id="roleSituation" placeholder="e.g., Leader in transition, Team facing strategic shift..." required rows={3} aria-describedby="role-error"/>
                 {state?.errors?.roleSituation && <p id="role-error" className="text-sm text-destructive mt-1">{state.errors.roleSituation[0]}</p>}
               </div>
-              
+
               <div>
                 <Label htmlFor="interestReason" className="mb-2 flex items-center">
                    <Sparkles className="mr-2 h-4 w-4 text-muted-foreground" /> Why you’re interested
@@ -115,7 +115,7 @@ export function GetInvolvedSection() {
                 <Textarea name="interestReason" id="interestReason" placeholder="e.g., Seeking clarity on next steps, Looking to improve team cohesion..." required rows={3} aria-describedby="interest-error"/>
                 {state?.errors?.interestReason && <p id="interest-error" className="text-sm text-destructive mt-1">{state.errors.interestReason[0]}</p>}
               </div>
-              
+
               <SubmitButton />
             </form>
           </div>
