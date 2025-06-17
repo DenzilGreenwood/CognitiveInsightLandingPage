@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { MessageCircle } from "lucide-react";
 import { AnimatedSection } from "@/components/landing/AnimatedSection";
 import { useState } from "react";
+import { Input } from "@/components/ui/input"; // Added import
 
 // Placeholder for actual chat messages if we build a simple UI here
 interface ChatMessage {
