@@ -3,7 +3,7 @@
 
 import { AnimatedSection } from "./AnimatedSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MessageCircleQuote } from "lucide-react";
+import { MessageCircleQuote } from "lucide-react"; // Ensure this import is present and correct
 
 const testimonials = [
   {
