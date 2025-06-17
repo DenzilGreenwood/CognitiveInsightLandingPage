@@ -1,4 +1,5 @@
 
+import { FullScreenHeroSection } from "@/components/landing/FullScreenHeroSection";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { AboutProtocolSection } from "@/components/landing/AboutProtocolSection";
 import { CaseStudySection } from "@/components/landing/CaseStudySection";
@@ -12,13 +13,14 @@ import { ClientJourneySection } from "@/components/landing/ClientJourneySection"
 export default function CognitiveEdgeLandingPage() {
   return (
     <>
-      <HeroSection />
+      <FullScreenHeroSection />
+      <HeroSection /> {/* This section will have id="start" */}
       <WorkWithMeSection /> {/* id="services" is inside this component */}
       <WhatYouReceiveSection />
       <WhatClientsGainSection />
       <ClientJourneySection />
       <AboutProtocolSection /> {/* id="how-it-works-section" is inside, used for "Explore the Protocol" */}
-      <CaseStudySection /> {/* id="story-behind-it-section" is inside, used for "Case Study" nav */}
+      <CaseStudySection /> {/* id="case-study" is inside, used for "Case Study" nav */}
       <TestimonialsSection />
     </>
   );

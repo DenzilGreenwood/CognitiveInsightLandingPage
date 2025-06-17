@@ -20,6 +20,7 @@ export function HeroSection() {
 
   return (
     <AnimatedSection
+      id="start" // Added ID to be the scroll target for FullScreenHeroSection
       as="section"
       className="py-20 md:py-32 bg-card shadow-sm"
       aria-labelledby="hero-title"

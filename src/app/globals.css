@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -88,7 +89,7 @@ body {
   }
 }
 
-/* Animation for fade-in effect */
+/* Animation for fade-in effect (existing) */
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px);
@@ -98,4 +99,26 @@ body {
 .fade-in-section-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Added for FullScreenHeroSection */
+@keyframes scroll-right-to-left {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-left-to-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+  /* Ensure transition from FullScreenHeroSection applies if needed, 
+     or define transition here if it's solely class-based */
 }
