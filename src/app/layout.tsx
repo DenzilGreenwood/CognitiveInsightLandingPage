@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from '@/components/layout/Header'; // Added Header import
 import { Footer } from '@/components/landing/Footer'; // Assuming Footer is site-wide
+import { ComingSoonWatermark } from '@/components/layout/ComingSoonWatermark';
 
 export const metadata: Metadata = {
   title: 'Cognitive Edge Protocol™ | CognitiveInsight.ai',
@@ -30,6 +31,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        <ComingSoonWatermark />
       </body>
     </html>
   );
