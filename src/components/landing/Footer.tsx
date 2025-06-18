@@ -30,11 +30,11 @@ export function Footer() {
           &copy; {currentYear} Denzil J. Greenwood. All rights reserved.
         </p>
         <p className="text-xs mt-2">
-          The Cognitive Edge Protocol&trade; is a proprietary framework created by Denzil J. Greenwood. All rights reserved.
+          The Cognitive Edge Protocol&trade; is a proprietary framework created by Denzil J. Greenwood.
         </p>
-        <nav className="mt-4 text-sm space-x-2" aria-label="Footer navigation">
-          <Link href="/ethos" className="hover:text-primary transition-colors px-1">
-            Ethos
+        <nav className="mt-4 text-sm space-x-1 sm:space-x-2" aria-label="Footer navigation">
+          <Link href="/about" className="hover:text-primary transition-colors px-1">
+            About
           </Link>
           <span className="text-foreground/50">|</span>
           <Link href="#" className="hover:text-primary transition-colors px-1">

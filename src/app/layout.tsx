@@ -2,13 +2,13 @@
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
-import { Header } from '@/components/layout/Header'; // Added Header import
-import { Footer } from '@/components/landing/Footer'; // Assuming Footer is site-wide
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/landing/Footer';
 import { ComingSoonWatermark } from '@/components/layout/ComingSoonWatermark';
 
 export const metadata: Metadata = {
-  title: 'Cognitive Edge Protocol™ | CognitiveInsight.ai',
-  description: 'Turn overwhelm into clarity, and identity into action with the Cognitive Edge Protocol™.',
+  title: 'Cognitive Insight AI | Clarity in Complexity with Denzil Greenwood',
+  description: 'I help mission-driven founders and leaders turn complexity into clarity using the Cognitive Edge Protocol™ for legacy-informed systems thinking.',
 };
 
 export default function RootLayout({
@@ -36,3 +36,4 @@ export default function RootLayout({
     </html>
   );
 }
+

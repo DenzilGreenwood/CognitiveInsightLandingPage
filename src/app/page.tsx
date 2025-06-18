@@ -1,13 +1,12 @@
 
 import { FullScreenHeroSection } from "@/components/landing/FullScreenHeroSection";
 import { HeroSection } from "@/components/landing/HeroSection";
-import { AboutProtocolSection } from "@/components/landing/AboutProtocolSection";
-import { CaseStudySection } from "@/components/landing/CaseStudySection";
-import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { WorkWithMeSection } from "@/components/landing/WorkWithMeSection";
 import { WhatYouReceiveSection } from "@/components/landing/WhatYouReceiveSection";
 import { WhatClientsGainSection } from "@/components/landing/WhatClientsGainSection";
 import { ClientJourneySection } from "@/components/landing/ClientJourneySection";
+import { LeadMagnetSection } from "@/components/landing/LeadMagnetSection";
+import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 
 
 export default function CognitiveEdgeLandingPage() {
@@ -19,9 +18,10 @@ export default function CognitiveEdgeLandingPage() {
       <WhatYouReceiveSection />
       <WhatClientsGainSection />
       <ClientJourneySection />
-      <AboutProtocolSection /> {/* id="how-it-works-section" is inside, used for "Explore the Protocol" */}
-      <CaseStudySection /> {/* id="case-study" is inside, used for "Case Study" nav */}
+      <LeadMagnetSection />
       <TestimonialsSection />
+      {/* AboutProtocolSection and CaseStudySection moved to /approach page */}
     </>
   );
 }
+

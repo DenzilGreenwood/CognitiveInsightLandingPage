@@ -16,7 +16,7 @@ export interface NewsletterSignUpState {
 }
 
 export async function signUpForNewsletter(
-  prevState: NewsletterSignUpState | undefined, // prevState can be undefined initially
+  prevState: NewsletterSignUpState | undefined, 
   formData: FormData
 ): Promise<NewsletterSignUpState> {
   const validatedFields = EmailSchema.safeParse({
@@ -31,13 +31,15 @@ export async function signUpForNewsletter(
     };
   }
 
-  // TODO: Implement actual newsletter signup logic 
-  // (e.g., save to Firestore, call external API like Mailchimp/ConvertKit)
-  console.log("New email signup attempt:", validatedFields.data.email);
+  // TODO: Implement actual newsletter signup logic OR lead magnet delivery
+  // (e.g., save to Firestore, call external API like Mailchimp/ConvertKit, send email with PDF)
+  console.log("Email submission received:", validatedFields.data.email);
 
   // Simulate success
+  // The success message can be more generic if this action is used for multiple forms.
+  // Specific success messages are usually handled in the component via toast based on context.
   return {
-    message: "Thank you for signing up! We'll keep you updated.",
+    message: "Thank you! Your email has been received.", 
     isSuccess: true,
   };
 }

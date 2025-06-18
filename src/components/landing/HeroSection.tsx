@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedSection } from "./AnimatedSection";
-import { Mail, Brain } from "lucide-react";
+import { Mail, Brain, ChevronRight } from "lucide-react";
 
 export function HeroSection() {
   const handleScrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
@@ -13,51 +13,71 @@ export function HeroSection() {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     } else {
-      // Fallback for sections not on the current page or if ID is wrong
       window.location.href = `/#${sectionId}`;
     }
   };
 
   return (
     <AnimatedSection
-      id="start" // Added ID to be the scroll target for FullScreenHeroSection
+      id="start"
       as="section"
-      className="py-20 md:py-32 bg-card shadow-sm"
+      className="py-16 md:py-24 bg-background" // Changed to background for contrast with cards
       aria-labelledby="hero-title"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Text Content Column */}
           <div className="text-center md:text-left">
+            <div className="mb-8 flex flex-col items-center md:items-start">
+              <Image
+                src="https://placehold.co/150x150.png" // Placeholder for Denzil's photo
+                alt="Denzil Greenwood"
+                width={150}
+                height={150}
+                className="rounded-full shadow-lg mb-4"
+                data-ai-hint="profile Denzil"
+              />
+              <p className="text-lg text-foreground/80 mb-1 font-medium">
+                Hi, I'm Denzil J. Greenwood.
+              </p>
+              <p className="text-md text-accent font-semibold mb-4">
+                Cognitive Clarity Coach & Strategic Systems Thinker
+              </p>
+            </div>
+            
             <h1
               id="hero-title"
-              className="font-headline text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-primary"
+              className="font-headline text-4xl sm:text-5xl lg:text-5xl font-bold tracking-tight text-primary leading-tight"
             >
-              Clarity in Complexity — Strategic Thinking for Life, Work, and Leadership.
+              Clarity in Complexity:
+              <span className="block text-foreground/90 text-3xl sm:text-4xl lg:text-4xl mt-2">Transforming chaos into mission-aligned action using the Cognitive Edge Protocol™.</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-foreground/80">
-              Through the Cognitive Edge Protocol™, I help people make meaning out of chaos and act from identity, not reaction.
+              I help mission-driven founders and leaders turn complexity into clarity using legacy-informed systems thinking.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 items-center justify-center md:justify-start">
-              <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground w-full sm:w-auto">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto shadow-md hover:shadow-lg transition-shadow">
                 <Link href="mailto:denzil.james.greenwood@outlook.com?subject=Discovery%20Call%20Request">
-                  <Mail className="mr-2 h-5 w-5" /> Book a Discovery Call
+                  <Mail className="mr-2 h-5 w-5" /> Book Discovery Call
                 </Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                <a href="#how-it-works-section" onClick={(e) => handleScrollToSection(e, 'how-it-works-section')}>
-                  <Brain className="mr-2 h-5 w-5" /> Explore the Protocol
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto border-primary text-primary hover:bg-primary/5 hover:text-primary shadow-sm hover:shadow-md transition-shadow">
+                <a href="/approach" onClick={(e) => { e.preventDefault(); window.location.href = '/approach'; }}>
+                  <Brain className="mr-2 h-5 w-5" /> Explore My Approach
                 </a>
               </Button>
             </div>
           </div>
-          <div className="flex justify-center">
+
+          {/* Image/Visual Column - Kept for balance, can be repurposed or removed */}
+          <div className="hidden md:flex justify-center items-center">
             <Image
-              src="https://placehold.co/600x450.png"
-              alt="Abstract representation of strategic thinking and clarity"
-              width={600}
-              height={450}
+              src="https://placehold.co/500x550.png" 
+              alt="Abstract representation of clarity and strategic thinking"
+              width={500}
+              height={550}
               className="rounded-lg shadow-xl object-cover"
-              data-ai-hint="strategic mind clarity"
+              data-ai-hint="strategic mind insight"
               priority
             />
           </div>
@@ -66,4 +86,3 @@ export function HeroSection() {
     </AnimatedSection>
   );
 }
-
