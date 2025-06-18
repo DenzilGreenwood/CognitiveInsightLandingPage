@@ -3,8 +3,7 @@
 
 import { AnimatedSection } from "./AnimatedSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Smile }_MOD_ <!-- Replaced MessageCircleQuote with Smile -->_MOD_
-from "lucide-react";
+import { Smile } from "lucide-react"; // Changed from MessageCircleQuote to Smile
 
 const testimonials = [
   {
@@ -30,7 +29,7 @@ export function TestimonialsSection() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <Smile className="h-12 w-12 text-primary mx-auto mb-4" />_MOD_ <!-- Replaced MessageCircleQuote with Smile -->_MOD_
+          <Smile className="h-12 w-12 text-primary mx-auto mb-4" /> {/* Changed icon here */}
           <h2
             id="testimonials-title"
             className="font-headline text-3xl sm:text-4xl font-bold text-primary mb-4"
