@@ -6,7 +6,7 @@ import { WhatYouReceiveSection } from "@/components/landing/WhatYouReceiveSectio
 import { WhatClientsGainSection } from "@/components/landing/WhatClientsGainSection";
 import { ClientJourneySection } from "@/components/landing/ClientJourneySection";
 import { LeadMagnetSection } from "@/components/landing/LeadMagnetSection";
-import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
+// import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 
 
 export default function CognitiveEdgeLandingPage() {
@@ -19,9 +19,8 @@ export default function CognitiveEdgeLandingPage() {
       <WhatClientsGainSection />
       <ClientJourneySection />
       <LeadMagnetSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       {/* AboutProtocolSection and CaseStudySection moved to /approach page */}
     </>
   );
 }
-
