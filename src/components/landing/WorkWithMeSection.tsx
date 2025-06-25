@@ -1,12 +1,11 @@
-
 "use client";
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { User, Users, Briefcase, Zap, Map, CheckCircle, MessageCircle, DollarSign, CalendarDays } from "lucide-react";
 import { AnimatedSection } from "./AnimatedSection";
-import Link from "next/link";
-import Image from "next/image"; // Added Image import
+import Image from "next/image";
+import { createCheckoutSession } from "@/app/actions/stripeActions";
 
 const services = [
   {
@@ -20,8 +19,8 @@ const services = [
       "1-week email follow-up",
     ],
     price: "$250 – $400",
+    priceId: 'price_YOUR_CLARITY_SESSION_PRICE_ID', // Replace with your Stripe Price ID
     ctaText: "Book Clarity Session",
-    ctaLink: "mailto:denzil.james.greenwood@outlook.com?subject=1:1 Cognitive Clarity Session Inquiry",
     imagePlaceholder: "https://placehold.co/400x250.png",
     dataAiHint: "individual coaching focused",
   },
@@ -36,8 +35,8 @@ const services = [
       "Optional leadership coaching",
     ],
     price: "$1,500 – $3,000",
+    priceId: 'price_YOUR_TEAM_WORKSHOP_PRICE_ID', // Replace with your Stripe Price ID
     ctaText: "Request Team Workshop",
-    ctaLink: "mailto:denzil.james.greenwood@outlook.com?subject=Team Insight Workshop Inquiry",
     imagePlaceholder: "https://placehold.co/400x250.png",
     dataAiHint: "team workshop collaboration",
   },
@@ -52,8 +51,8 @@ const services = [
       "Decision-making support",
     ],
     price: "$1,000 – $2,500/month",
+    priceId: 'price_YOUR_PARTNERSHIP_PRICE_ID', // Replace with your Stripe Price ID
     ctaText: "Discuss Partnership",
-    ctaLink: "mailto:denzil.james.greenwood@outlook.com?subject=Strategic Partnership Inquiry",
     imagePlaceholder: "https://placehold.co/400x250.png",
     dataAiHint: "strategic partnership growth",
   },
@@ -78,8 +77,8 @@ export function WorkWithMeSection() {
                 src={service.imagePlaceholder} 
                 alt={service.title} 
                 width={400} 
-                height={250} // Adjusted height
-                className="w-full h-48 object-cover" // Ensure consistent image height
+                height={250}
+                className="w-full h-48 object-cover"
                 data-ai-hint={service.dataAiHint}
               />
               <CardHeader className="pb-4">
@@ -104,11 +103,12 @@ export function WorkWithMeSection() {
                 <div className="flex items-center text-lg font-semibold text-primary mb-4">
                     <DollarSign className="h-5 w-5 mr-1" /> Price: {service.price}
                 </div>
-                <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
-                  <Link href={service.ctaLink}>
+                <form action={createCheckoutSession} className="w-full">
+                  <input type="hidden" name="priceId" value={service.priceId} />
+                  <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
                     <CalendarDays className="mr-2 h-4 w-4" /> {service.ctaText}
-                  </Link>
-                </Button>
+                  </Button>
+                </form>
               </CardFooter>
             </Card>
           ))}
