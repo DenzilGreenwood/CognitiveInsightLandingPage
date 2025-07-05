@@ -30,6 +30,9 @@ export function FullScreenHeroSection() {
   const handleScrollToStart = () => {
     document.getElementById('start')?.scrollIntoView({ behavior: 'smooth' });
   };
+  
+  const wheelSize = 420;
+  const radius = 170;
 
   return (
     <section
@@ -51,8 +54,8 @@ export function FullScreenHeroSection() {
       <div
         className="animation-container"
         style={{
-          width: '420px',
-          height: '420px',
+          width: `${wheelSize}px`,
+          height: `${wheelSize}px`,
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
@@ -69,6 +72,7 @@ export function FullScreenHeroSection() {
             opacity: 1
           }}
         >
+          {/* This is the rotating element. It can contain a visual graphic of a wheel if needed. */}
           <div
             className="cognitive-wheel"
             style={{
@@ -77,22 +81,28 @@ export function FullScreenHeroSection() {
               height: '100%',
               borderRadius: '50%',
               opacity: 0.8,
+              border: '2px dashed rgba(169, 169, 169, 0.2)', // Optional: A faint circle graphic
             }}
           >
-            {wheelTraits.map((trait, index) => {
-              const angle = index * (360 / wheelTraits.length);
+          </div>
+          
+          {/* This container holds the text items, positioned absolutely so they don't rotate. */}
+          {wheelTraits.map((trait, index) => {
+              // We subtract Math.PI / 2 to start the first item at the top of the circle (12 o'clock).
+              const angleInRadians = (index / wheelTraits.length) * 2 * Math.PI - (Math.PI / 2); 
+              const x = radius * Math.cos(angleInRadians) + wheelSize / 2;
+              const y = radius * Math.sin(angleInRadians) + wheelSize / 2;
+              
               const style: React.CSSProperties = {
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
+                top: `${y}px`,
+                left: `${x}px`,
+                transform: 'translate(-50%, -50%)',
                 width: '120px',
-                marginLeft: '-60px',
-                marginTop: '-1rem',
                 textAlign: 'center',
                 fontSize: '1rem',
                 fontWeight: 500,
                 color: '#A9A9A9',
-                transform: `rotate(${angle}deg) translate(170px) rotate(${-angle}deg)`,
               };
               return (
                 <div key={trait} style={style}>
@@ -100,7 +110,6 @@ export function FullScreenHeroSection() {
                 </div>
               );
             })}
-          </div>
         </div>
         
         <div
