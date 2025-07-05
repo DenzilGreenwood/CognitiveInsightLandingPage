@@ -5,10 +5,6 @@ import { redirect } from 'next/navigation';
 import Stripe from 'stripe';
 import { z } from 'zod';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-06-20',
-});
-
 const CreateCheckoutSessionSchema = z.object({
   priceId: z.string(),
 });
@@ -22,6 +18,17 @@ export async function createCheckoutSession(formData: FormData) {
     console.error('Invalid Price ID');
     return redirect('/?error=true');
   }
+
+  if (!process.env.STRIPE_SECRET_KEY) {
+    console.error(
+      'Stripe secret key is not set. Please set STRIPE_SECRET_KEY in your .env file.'
+    );
+    return redirect('/?error=true');
+  }
+
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
+    apiVersion: '2024-06-20',
+  });
 
   const { priceId } = validatedFields.data;
   const origin = headers().get('origin') || 'http://localhost:9002';
