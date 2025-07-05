@@ -51,8 +51,8 @@ export function FullScreenHeroSection() {
       <div
         className="animation-container"
         style={{
-          width: '450px',
-          height: '450px',
+          width: '420px',
+          height: '420px',
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
@@ -92,7 +92,7 @@ export function FullScreenHeroSection() {
                 fontSize: '1rem',
                 fontWeight: 500,
                 color: '#A9A9A9',
-                transform: `rotate(${angle}deg) translate(200px) rotate(${-angle}deg)`,
+                transform: `rotate(${angle}deg) translate(170px) rotate(${-angle}deg)`,
               };
               return (
                 <div key={trait} style={style}>
