@@ -101,17 +101,7 @@ body {
   transform: translateY(0);
 }
 
-/* Added for FullScreenHeroSection */
-@keyframes scroll-right-to-left {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes scroll-left-to-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
-}
-
+/* Animation classes for the hero section */
 .fade-in {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -119,6 +109,19 @@ body {
 
 .fade-out {
   opacity: 0 !important;
-  /* Ensure transition from FullScreenHeroSection applies if needed, 
-     or define transition here if it's solely class-based */
+  transition: opacity 0.8s ease-out;
+}
+
+/* New animation for the Cognitive Edge Wheel */
+.cognitive-wheel {
+  animation: rotate-wheel 40s linear infinite;
+}
+
+@keyframes rotate-wheel {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

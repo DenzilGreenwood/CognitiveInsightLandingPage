@@ -1,20 +1,28 @@
-
 "use client";
 
 import React, { useEffect } from 'react';
 
+const wheelTraits = [
+  "Legacy Framing",
+  "Pattern Recognition",
+  "Reflective Depth",
+  "Clarity Architect",
+  "High-Agency Thinking",
+  "Emotional Insight"
+];
+
+
 export function FullScreenHeroSection() {
   useEffect(() => {
     const timer = setTimeout(() => {
-      const scrollingPart = document.getElementById('scrolling-part');
-      if (scrollingPart) {
-        scrollingPart.classList.add('fade-out');
-        // Remove inline opacity to let CSS transition take full effect
-        scrollingPart.style.opacity = ''; 
+      const wheelContainer = document.getElementById('wheel-container');
+      if (wheelContainer) {
+        wheelContainer.classList.add('fade-out');
       }
+      
       document.getElementById('final-part')?.classList.add('fade-in');
       document.getElementById('cta-button-hero')?.classList.add('fade-in');
-    }, 5000); // Animation starts after 5 seconds
+    }, 5000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -32,7 +40,7 @@ export function FullScreenHeroSection() {
         overflow: 'hidden',
         position: 'relative',
         backgroundColor: '#1a1a1a',
-        color: '#f0f2f5', // Light text for contrast on dark background
+        color: '#f0f2f5',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -43,55 +51,58 @@ export function FullScreenHeroSection() {
       <div
         className="animation-container"
         style={{
-          width: '90%',
-          maxWidth: '1000px',
-          height: '200px',
+          width: '450px',
+          height: '450px',
           position: 'relative',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        <div
-          id="scrolling-part"
+        <div 
+          id="wheel-container"
           style={{
             position: 'absolute',
             width: '100%',
             height: '100%',
             transition: 'opacity 0.8s ease-out',
-            opacity: 0.6, // Initial opacity for scrolling words
+            opacity: 1
           }}
         >
           <div
-            className="line line1"
+            className="cognitive-wheel"
             style={{
-              position: 'absolute',
-              top: '25%',
-              whiteSpace: 'nowrap',
-              fontSize: '1.8rem',
-              width: '200%',
-              animation: 'scroll-right-to-left 30s linear infinite',
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              borderRadius: '50%',
+              opacity: 0.8,
             }}
           >
-            <span>Legacy Framing &nbsp; Pattern Recognition &nbsp; Clarity Architect &nbsp; Systems Mapping &nbsp; Reflective Depth &nbsp; Synthesis &nbsp; </span>
-            <span>Legacy Framing &nbsp; Pattern Recognition &nbsp; Clarity Architect &nbsp; Systems Mapping &nbsp; Reflective Depth &nbsp; Synthesis &nbsp; </span>
-          </div>
-          <div
-            className="line line2"
-            style={{
-              position: 'absolute',
-              top: '55%',
-              whiteSpace: 'nowrap',
-              fontSize: '1.8rem',
-              width: '200%',
-              animation: 'scroll-left-to-right 30s linear infinite',
-            }}
-          >
-            <span>Validate &nbsp; Stabilize &nbsp; Reframe &nbsp; Guide &nbsp; Empower &nbsp; Facilitate &nbsp; Align &nbsp; </span>
-            <span>Validate &nbsp; Stabilize &nbsp; Reframe &nbsp; Guide &nbsp; Empower &nbsp; Facilitate &nbsp; Align &nbsp; </span>
+            {wheelTraits.map((trait, index) => {
+              const angle = index * (360 / wheelTraits.length);
+              const style: React.CSSProperties = {
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: '120px',
+                marginLeft: '-60px',
+                marginTop: '-1rem',
+                textAlign: 'center',
+                fontSize: '1rem',
+                fontWeight: 500,
+                color: '#A9A9A9',
+                transform: `rotate(${angle}deg) translate(200px) rotate(${-angle}deg)`,
+              };
+              return (
+                <div key={trait} style={style}>
+                  {trait}
+                </div>
+              );
+            })}
           </div>
         </div>
-
+        
         <div
           id="final-part"
           style={{
@@ -102,7 +113,8 @@ export function FullScreenHeroSection() {
             opacity: 0,
             transform: 'translateY(20px)',
             transition: 'opacity 1s ease-in 0.5s, transform 1s ease-in 0.5s',
-            fontFamily: "'Space Grotesk', sans-serif", // Headline font for impact
+            fontFamily: "'Space Grotesk', sans-serif",
+            zIndex: 10,
           }}
         >
           <h1 id="hero-main-title">How Can I Help?</h1>
@@ -112,11 +124,10 @@ export function FullScreenHeroSection() {
       <button
         onClick={handleScrollToStart}
         id="cta-button-hero"
-        className="cta-button" // Keep class if needed for global styling not overridden
         style={{
           marginTop: '40px',
           padding: '15px 30px',
-          backgroundColor: '#00b894', // Accent green/teal
+          backgroundColor: '#00b894',
           color: 'white',
           fontSize: '1.2rem',
           fontWeight: 'bold',
@@ -124,7 +135,8 @@ export function FullScreenHeroSection() {
           borderRadius: '30px',
           cursor: 'pointer',
           opacity: 0,
-          transition: 'opacity 1s ease-in 1s', // Transition for the button itself
+          transform: 'translateY(20px)',
+          transition: 'opacity 1s ease-in 1s, transform 1s ease-in 1s',
           fontFamily: "'Inter', sans-serif",
         }}
         aria-label="Start Your Discovery"
